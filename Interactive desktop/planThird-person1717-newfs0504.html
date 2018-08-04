@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <title></title>
+    <link rel="stylesheet" href="css/all-1.css"/>
+    <link rel="stylesheet" type="text/css" href="css/basic.css"/>
+
+
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
+    <script type="text/javascript" src="js/main-17.js"></script>
+    <script type="text/javascript" src="js/pinchzoom.js"></script>
+    <script src="js/stopScale.js"></script>
+
+
+
+</head>
+    <div class="all">
+        <div class="shade">
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>
+            <div class="number"></div>
+        </div>
+        <div class="flipbook-viewport" style="display:none;">
+
+            <div class="container">
+                <div class="flipbook">
+                </div>
+            </div>
+        </div>
+
+
+        <div id="list">
+            <div class="item" data-num="res/ad17.mp3"><span><img src="image/cpqt-1.png" alt=""/></span></div>
+            <div class="cpqt">
+                <img src="image/fm17.jpg" alt=""/>
+            </div>
+        </div>
+
+        <div id="box">
+            <audio src="" loop></audio>
+            <div class="bofang">
+                <img src="image/bofang.png" alt=""/>
+            </div>
+            <div class="zanting">
+                <img src="image/sound.png" alt=""/>
+            </div>
+            <input id="size" type="range" max="1" min="0" value="0.5" step="0.1" />
+        </div>
+
+        <div class="posin">
+            <img src="image/xinfeng-1-1.png" alt=""/>
+            <!--<p>点击查看</p>-->
+        </div>
+        
+        <div class="returnPrev">
+            <a href="">
+                <img src="image/return1.png" alt=""/>
+            </a>
+        </div>
+
+
+
+    </div>
+
+<!--遮罩层-->
+    <div class="mask">
+        <!--第三屏自写轮播-->
+        <div class="third-bod">
+            <div class="third-box">
+                <ul>
+                    <li>
+                        <div class="pinch-zoom">
+                            <img src="image/mlf-xin1.jpg" alt=""/>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pinch-zoom">
+                            <img src="image/mlf-xin2.jpg" alt=""/>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pinch-zoom">
+                            <img src="image/mlf-xin3.jpg" alt=""/>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="pinch-zoom">
+                            <img src="image/mlf-xin4.jpg" alt=""/>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <p class="prev">&lt;</p>
+            <p class="next">&gt;</p>
+        </div>
+        <p class="closeMask"> x </p>
+    </div>
+
+   <!-- <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="http://www.jq22.com/jquery/three.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.onebook3d-2.3.0-full-new.js"></script>-->
+    <script>
+
+        $(function(){
+            $('#box').animate({
+                left:'18%'//-20
+            },1000);
+
+            //$('#box').addClass('boxDhStart');
+
+            $('.posin').delay(1000).animate({
+                right:'-5%'//-25
+            },1000)
+        })
+
+
+        /*拖拽*/
+            var List = document.getElementById('list');
+            var Lis = List.querySelectorAll('.item');
+            var box = document.getElementById('box');
+
+        /*以下是拖动后动画案例*/
+        var disX,disY,boxX,boxY;
+        boxX = box.offsetLeft;
+        boxY = box.offsetTop;
+        var html;
+        var srcRandom;
+        var _self;
+        var realSrc;
+        for(var i = 0, len = Lis.length; i < len; i++ ) {
+            Lis[i].style.left = i*(Lis[0].offsetWidth + 12 )+'px';
+            lisDrag(Lis[i],Lis[i].offsetTop,Lis[i].offsetLeft);
+        }
+
+
+
+
+        /*touch触屏*/
+        function lisDrag(elm,bT,bL){
+         elm.ontouchstart =function(e){
+         e = e || event;
+         e.preventDefault();
+         e.stopPropagation();
+         //console.log(elm,'down');
+         disX = e.changedTouches[0].clientX - elm.offsetLeft;
+         disY = e.changedTouches[0].clientX-elm.offsetTop;
+         //console.log(elm,bT,bL);
+         //html=$(elm).clone();
+         document.ontouchmove =function(e){
+         //console.log('move');
+         var l = e.changedTouches[0].clientX - disX;
+         var t = e.changedTouches[0].clientY - disY;
+         elm.style.left = l+30 +'px';
+         elm.style.top = t-80 +'px';
+         if(e.changedTouches[0].clientY + Lis[0].offsetHeight < boxY || e.changedTouches[0].clientX+Lis[0].offsetWidth < boxX  ){
+         return false;
+         }else if(e.changedTouches[0].clientY+elm.offsetHeight >= boxY || e.changedTouches[0].clientX+elm.offsetWidth >= boxX){
+         /*box.className = 'active';*/
+         }
+         }
+         document.ontouchend = function(e){
+         //console.log(elm,'up',bT,bL);
+         document.ontouchmove=null;
+         document.ontouchend=null;
+
+         //console.log(e.clientY,boxY ,e.clientX ,boxX )
+         if(e.changedTouches[0].clientY + Lis[0].offsetHeight < boxY || e.changedTouches[0].clientX+Lis[0].offsetWidth < boxX  ){
+         //nomove
+
+         elm.style.left = bL-12 + 'px';
+         elm.style.top = bT + 'px';
+         }else if(e.changedTouches[0].clientY+elm.offsetHeight >= boxY || e.changedTouches[0].clientX+elm.offsetWidth >= boxX){
+         html = elm;
+         box.appendChild(html).className='item';
+         //box.appendChild(html).className = 'item';
+         imgIndex=$('#box .item').attr('data-num');
+         //alert(imgIndex);
+         // elm.style.display= 'none';
+         elm.x= bL-12;
+         elm.y = bT ;
+
+         if($(box).children().length==5){
+             realSrc=$('#box .item').attr('data-num');
+             $('#box .item').hide();
+             $('#box audio').attr('src',realSrc);
+             $('#box').css({
+                 'background':'url("image/playAfter-1.png") no-repeat',
+                 'background-size':'100%'
+             });
+             var flag=true;
+             $('.bofang').click(function(){
+             if(flag){
+                 $(this).siblings('audio').get(0).play();
+                 $(this).children().attr('src','image/zanting.png');
+                 flag=false;
+             }else{
+                 $(this).siblings('audio').get(0).pause();
+                 $(this).siblings('audio').get(0).currentTime=0;
+                 $(this).children().attr('src','image/bofang.png');
+                 flag=true;
+            }
+
+         })
+
+
+
+         }
+         }
+         return false;
+         }
+         }
+         }
+        /*touch触屏*/
+
+        var flag1=true;
+        $('.zanting').click(function(){
+            if(flag1){
+                $('#size').show();
+                flag1=false;
+            }else{
+                $('#size').hide();
+                flag1=true;
+            }
+
+        })
+
+        /*input range 控制audio的音量   */
+        $('#size').on('input propertychange',function(){
+            $('#box audio').get(0).volume=$('#size').val();
+        })
+        /*返回上一页面按钮*/
+        $('.returnPrev a').click(function(e){
+            e.preventDefault();
+
+            $('#box').animate({
+                left:'-20%'//-20
+            },1000);
+            //$('#box').addClass('boxDhStop');
+
+            $('.posin').delay(1000).animate({
+                right:'-25%'//-25
+            },1000)
+
+
+            if($(box).children().length==5){
+                box.removeChild(box.childNodes[5]);
+                var html1=html;
+                html1.style.left=0;
+                html1.style.top=0;
+                html1.style.width='100%';
+                html1.style.display='block';
+                List.appendChild(html1);
+            }
+
+            window.location.href='planSecondJj.html';
+
+        })
+        /*返回上一页面按钮*/
+        /*以下是拖动后动画案例*/
+    /*拖拽*/
+
+
+
+
+        var src1 = [
+            'image/shu1.jpg',
+            'image/shu2.jpg',
+            'image/shu3.jpg',
+            'image/shu4.jpg',
+            'image/shu5.jpg',
+            'image/shu6.jpg'
+        ];
+
+        $('#box').height($('#box').width()*0.8);
+        $('.all').height($(window).height());
+        $('body').height($(window).height());
+        $('.mask').height($(window).height());
+        $('#list').height($('#list .item').width()*1.34);
+        $('#list .item').height($('#list .item').width()*1.34);
+        //$('.third-bod').height($('.third-bod').width()*0.9);
+        $('.third-bod').height($(window).height());
+        //$('#photobook').onebook(src1,{skin:['light','dark'], bgDark:'#56998c url(./i/bg.jpg)',bgLight:'#d97f6f url(./i/bg2.jpg)', border:0, cesh:false});
+
+
+        /*遮罩层*/
+        var sdistance='';
+        var sligs='';//轮播图片的个数  如果不-1的话 就会移动出空白的区域 -1的话 可以正好切换到最后一张图时不能再次点击 prev按钮
+        var sliL=''; //轮播图片的宽度*length-1的个数 也就是prev  left的最大值
+        var sliImageWidth='';
+
+
+
+        /*点击出现遮罩层*/
+        $('.posin').click(function(){
+            $('.mask').show();
+            sc();
+        });
+        /*手指放大缩小图片*/
+        $('.pinch-zoom').each(function () {
+            new RTP.PinchZoom($(this), {});
+        });
+
+        /*点击X关闭遮罩层 distance归零 等等*/
+        $('.closeMask').click(function(){
+            $('.pinch-zoom').css('-webkit-transform','scale(1,1)');
+            sdistance=0;
+            $('.third-box ul').css('left',0);
+            $('.third-bod .prev').show();
+            $('.third-bod .next').show();
+            $('.mask').hide();
+        })
+        /*由于遮罩层display:none了 点击按钮 block显示后 点击切换按钮 移动的距离不对
+         * 所以需要把下面方法封装 在点击事件中再次调用一下 才可以解决移动距离不对的问题
+         * */
+        function sc(){
+            /*第三屏自写轮播*/
+            /*next“ > ”按钮事件*/
+            sdistance=0;
+            sligs=$('.mask .third-box li').length-1;//轮播图片的个数  如果不-1的话 就会移动出空白的区域 -1的话 可以正好切换到最后一张图时不能再次点击 prev按钮
+            sliL=$('.mask .third-box li').width()*sligs; //轮播图片的宽度*length-1的个数 也就是prev  left的最大值
+            sliImageWidth=$('.mask .third-box li').width();
+            //$('.third-bod').height($('.third-bod').width()*0.9);
+            $('.third-bod').height($(window).height());
+            /*第三屏自写轮播*/
+        }
+        /*点击出现遮罩层*/
+
+
+        /*点击左右按钮*/
+        $('.third-bod .next').click(function(){
+            if(sdistance>-sliL){
+                sdistance-=sliImageWidth;
+                $('.third-box ul').animate({
+                    left:sdistance
+                },500)
+            }
+
+            if(sdistance==-sliL){
+                $(this).hide();
+            }
+
+            if(sdistance<0){
+                $('.third-bod .prev').show();
+            }
+
+        })
+
+
+        /*prev“ > ”按钮事件*/
+        $('.third-bod .prev').click(function(){
+            if(sdistance<0) {
+                sdistance += sliImageWidth;
+                $('.third-box ul').animate({
+                    left: sdistance
+                }, 500)
+            }
+
+            if(sdistance==0){
+                $(this).hide();
+            }
+
+            if(sdistance>=-sliL){
+                $('.third-bod .next').show();
+            }
+        })
+        /*点击左右按钮*/
+
+
+
+    </script>
+
+<body>
+
+</body>
+</html>

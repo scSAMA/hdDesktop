@@ -1,0 +1,155 @@
+*{margin:0;padding:0;}
+/*index页面*/
+.sectionAll{
+    background: url('../image/hudongzm.jpg') no-repeat;
+    position: relative;
+    box-sizing: border-box;
+}
+.xj-title{
+    width:43%;
+    margin:5% auto 11%;
+    visibility: hidden;
+}
+.xj-title img{
+    width: 100%;
+}
+.xj-group{
+    text-align: center;
+}
+.groupDetail{
+    width: 15%;
+    display: inline-block;
+    margin-right: 1%;
+}
+.groupDetail a{
+    display: block;
+    text-decoration: none;
+    font-family:STXingkai;
+}
+.groupDetail a img{
+    width: 100%;
+    -webkit-transform:scale(1.5);
+}
+.groupDetail a p{
+    font-size: 40px;
+    font-weight: bold;
+    color:#000;
+}
+.xj-class{
+    position: absolute;
+    bottom:5%;
+    right:3%;
+    font-size: 60px;
+    font-family:STXingkai;
+    letter-spacing: 10px;
+}
+/*index页面*/
+
+
+
+
+
+/*plan-second页面*/
+.second-section{
+    background: url('../image/bj4.jpg') no-repeat;
+    position: relative;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+}
+.second-top{
+    width: 40%;
+    margin:-4% auto 0;
+}
+.second-box{
+    width: 100%;
+    margin:0 auto 0;
+}
+.sec-box-lef{
+    width: 20%;
+    display: inline-block;
+    position: relative;
+    top: 190px;
+}
+.sec-box-lef img{
+    width: 100%;
+}
+.sec-box-right{
+    width: 100%;
+    padding:11% 0 0 2%;
+    box-sizing: border-box;
+    position: relative;
+    margin:0 auto;
+}
+.second-btn-lef{
+    position: absolute;
+    display: none;
+    font-size: 50px;
+    color:#000;
+    top:39%;
+    left: -2%;
+    cursor: pointer;
+}
+.second-btn-right{
+    position: absolute;
+    display: none;
+    font-size: 50px;
+    color:#000;
+    top:39%;
+    right:-2%;
+    cursor: pointer;
+}
+.sec-right-top{
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 3%;
+}
+.top-ul{
+    width: 500%;
+    position: relative;
+    height:280px;
+}
+
+
+.top-li{
+    display: inline-block;
+    text-align: center;
+    font-family:STXingkai;
+    font-size: 30px;
+    margin-right: 0.3%;
+    position: relative;
+    z-index: 111111111111;
+}
+.top-li:nth-child(odd){
+    position: relative;
+    top:25px;
+}
+.top-li a{
+    display: block;
+    text-decoration: none;
+    color:#000;
+    font-weight: bold;
+}
+
+
+
+.sec-right-bom{
+    width: 100%;
+    background: url('../image/right-bom-bg.jpg') no-repeat;
+}
+.returnFirst{
+    position: absolute;
+    bottom:5%;
+    right:5%;
+}
+
+.runBox{
+    position: absolute;
+    width: 11%;
+    height:260px;
+    top:60%;right:31%;
+    background:url('../image/kuang.png') no-repeat;
+    background-size: 100% 100%;
+    z-index:111;
+}
+
+/*plan-second页面*/

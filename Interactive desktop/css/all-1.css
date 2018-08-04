@@ -1,0 +1,313 @@
+
+    /*翻书插件section的样式*/
+body{position: relative;top:-50px;overflow:hidden;width:100%;height:100%;margin:0px;padding:0px;background:url('../image/bj4.jpg') no-repeat;background-size:100% 101%;color:#000000;/*min-width:800px;*/}
+.links a:link,.links a:visited{color:black;text-decoration:none;font:20px sans-serif;}
+.links a:hover{color:black;text-decoration:underline;}
+
+.red-filled {background:#e0604a;border:1px solid #ffc30d;}
+.blue {background:#67BCCF;}
+
+.section {width:800px;border-radius:10px; margin:50px auto;position: relative;}
+.section p{text-align:center;margin:0px;padding:20px;font:16px sans-serif;line-height:140%;}
+.section p strong {color:gold;}
+
+.section-list {width:800px;border-radius:10px;margin:50px auto;}
+
+.address{margin:0px auto 50px auto;padding:0px;width:800px;text-align:center;}
+.address, .address a{font:16px arial, sans-serif;color:black;}
+
+/*翻书插件section的样式*/
+.all{
+    width: 100%;
+    position: relative;
+}
+.posin{
+    position: absolute;
+    bottom:7%;
+    right:-33%;
+}
+.posin img{
+    width: 60%;
+}
+.posin p{
+    position: absolute;
+    top:62%;left:40%;
+    font-weight: bold;
+    font-size: 18px;
+}
+.play{
+    position: absolute;
+    top:5%;
+    left:5%;
+}
+.test img{
+    box-shadow: 3px 3px 18px 6px ;
+    position: absolute;
+    top:50px;left:200px;
+}
+
+
+
+    /*遮罩层*/
+    .mask{
+        display: none;
+        width: 100%;
+        background: rgba(0,0,0,0.8);
+        position: absolute;
+        top:5.1%;left:0;
+        z-index:10000;
+    }
+    .closeMask{
+        position: absolute;
+        right:14%;
+        top:5%;
+        color:#fff;
+        font-size:50px;
+    }
+    /*自写轮播*/
+    .third-bod{
+        position: absolute;
+        top:-0.5%;
+        /*left:25%;*/
+        width: 100%;
+        margin:0 auto;
+    }
+    .third-box{
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        height:100%;
+    }
+    .third-box ul{
+        position:relative;
+        width:500%;
+        height:100%;
+        padding:0;
+        margin:0;
+    }
+    .third-box ul:after{
+        content:'';
+        display: table;
+        clear: both;
+    }
+    .third-box ul>li{
+        list-style: none;
+        float: left;
+        width: 20%;
+        height:100%;
+        box-sizing: border-box;
+        padding-top:2%;
+    }
+    .third-box img{
+      /*  width: 100%;
+        height:100%;*/
+    }
+    .third-bod .prev{
+        position: absolute;
+        top:40%;
+        left:12%;
+        display: none;
+        font-size: 50px;
+        cursor: pointer;
+        color:#fff;
+    }
+    .third-bod .next{
+        position: absolute;
+        top:40%;
+        right:12%;
+        font-size: 50px;
+        color:#fff;
+        cursor: pointer;
+    }
+    .prev{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #000;
+
+        line-height: 44px;
+        text-indent: 5px;
+
+        font-size: 50px;
+        cursor: pointer;
+        color:#fff;
+    }
+    .next{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #000;
+
+        line-height: 44px;
+        text-indent: 8px;
+
+        font-size: 50px;
+        cursor: pointer;
+        color:#fff;
+    }
+    /*遮罩层*/
+
+
+
+    /*#box*/
+    #box{
+        width: 28%;
+        background: url('../image/play1-1.png') no-repeat;
+        background-size: 100%;
+        position: absolute;
+        bottom:-13%;left:-20%;
+        overflow: hidden;
+        /*transition: all 1s linear;*/
+
+    }
+    #box audio{
+        width: 109%;
+        position: absolute;
+        bottom:0;
+    }
+    #box .item{width:20%;height:27%!important;position: absolute;top:36%!important;left:37%!important;}
+    #box span {border-radius: 50%;overflow: hidden; display: block; width: 100%; height: 100%;/* margin: 10px 0 0 10px;*/  font-size: 1rem; text-align: center; color: #fff; }
+    #box span img{width: 100%;}
+    #list{
+        position: absolute;
+        top:37%;
+        width: 10%;
+        left:11%;
+    }
+    #list .item{width:100%;position: absolute;z-index:1111;display: block;}
+    #list span{width:100%;display: block}
+    #list img{
+        width:100%;
+    }
+    #list .item span img{
+        width:148%;
+    }
+    /*#box*/
+    .cpqt{
+        width: 100%;
+        height:100%;
+
+    }
+    .cpqt img{
+        position: absolute;
+        left: -43%;
+        top:2%;
+        z-index: 1111;
+        width: 128%!important;
+        height:100%;
+    }
+.returnPrev{
+    position: absolute;
+    bottom:-2%;
+    right:6%;
+}
+
+.bofang{
+     position: absolute;
+     bottom:52.6%;
+     right:19%;
+ }
+.bofang img{
+    width: 30px;
+    height: 30px;
+}
+.zanting{
+    position: absolute;
+    bottom:44%;
+    right:19%;
+}
+    .zanting img{
+        width: 30px;
+        height: 30px;
+    }
+    /*
+    .boxDhStart{
+
+        left:15%!important;
+    }
+    .boxDhStop{
+        left:-20%;
+    }*/
+
+/*#size{
+    -webkit-transform:rotate(-90deg);
+    position: absolute;
+    bottom:42%;
+    left:-3%;
+    display: none;
+}*/
+
+    /*横条样式*/
+    input[type=range] {
+        
+       /* -webkit-transform:rotate(-90deg);*/
+        position: absolute;
+        bottom:47%;
+        right:25%;
+        width: 20%;
+        border:0;
+        outline: 0;
+        background: #fff;
+        -webkit-appearance: none;/*清除系统默认样式*/
+        /*width: 100%;*/
+        /*background: -webkit-linear-gradient(#61bd12, #61bd12) no-repeat, #ddd;/!*设置左边颜色为#61bd12，右边颜色为#ddd*!/
+        background-size: 50% 100%;/!*设置左右宽度比例*!/*/
+        height: 3px;/*横条的高度*/
+    }
+    /*拖动块的样式*/
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;/*清除系统默认样式*/
+        height: 15px;/*拖动块高度*/
+        width: 15px;/*拖动块宽度*/
+        background: #000;/*拖动块背景*/
+        border-radius: 50%; /*外观设置为圆形*/
+        border: solid 1px #ddd; /*设置边框*/
+    }
+
+/*遮罩层中图片样式*/
+.pinch-zoom-container{
+    width: 23%;
+    height: 80%;
+    left:39%;
+    overflow: visible!important;
+}
+.pinch-zoom{
+    width: 100%;
+    height:100%;
+}
+.pinch-zoom-container img{
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/*遮罩层中图片样式*/
+
+
+   /* /!*横条样式*!/
+    input[type=range] {
+        display: none;
+        -moz-transform:rotate(-90deg);
+        position: absolute;
+        bottom:52%;
+        left:-12%;
+        background: #fff;
+        -webkit-appearance: none;/!*清除系统默认样式*!/
+        /!*width: 100%;*!/
+        /!*background: -webkit-linear-gradient(#61bd12, #61bd12) no-repeat, #ddd;/!*设置左边颜色为#61bd12，右边颜色为#ddd*!/
+        background-size: 50% 100%;/!*设置左右宽度比例*!/!*!/
+        height: 3px;/!*横条的高度*!/
+    }
+    /!*拖动块的样式*!/
+    input[type=range]::-moz-slider-thumb {
+        -moz-appearance: none;/!*清除系统默认样式*!/
+        height: 20px;/!*拖动块高度*!/
+        width: 20px;/!*拖动块宽度*!/
+        background: #000;/!*拖动块背景*!/
+        border-radius: 50%; /!*外观设置为圆形*!/
+        border: solid 1px #ddd; /!*设置边框*!/
+    }*/
+
+
+

@@ -1,0 +1,53 @@
+*{margin:0;padding:0;}
+.sec-container{
+    position: relative;
+    margin-top:13%;
+}
+.lef{
+    width: 27%;
+    margin-left:5%;
+    display: inline-block;
+}
+.ulBox{
+    display: inline-block;
+    width:52% ;
+    overflow: hidden;
+    position: relative;
+    top:-100px;
+    vertical-align: middle;
+}
+.ulBox .ulL{
+    width: 500%;
+    position: relative;
+    padding:10% 0;
+}
+.ulBox .ulL .liL{
+    display: inline-block;
+    position: relative;
+    margin-right: 1%;
+}
+.liL a{
+    display: block;
+    text-decoration: none;
+}
+.liL:nth-child(2){
+    top:-50px;
+}
+.liL:nth-child(4){
+    top:50px;
+}
+.testPrev{
+    position: absolute;
+    top:22%;
+    left:2%;
+    font-size: 50px;
+    cursor: pointer;
+    display: none;
+}
+.testNext{
+    position: absolute;
+    top:22%;
+    right:2%;
+    font-size: 50px;
+    cursor: pointer;
+}
